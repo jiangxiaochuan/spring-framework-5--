@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
 
 /**
  * {@link org.springframework.cache.Cache} implementation on top of a
- * {@link javax.cache.Cache} instance.
+ * {@link Cache javax.cache.Cache} instance.
  *
  * <p>Note: This class has been updated for JCache 1.0, as of Spring 4.0.
  *
@@ -42,7 +42,7 @@ public class JCacheCache extends AbstractValueAdaptingCache {
 
 
 	/**
-	 * Create an {@link org.springframework.cache.jcache.JCacheCache} instance.
+	 * Create a {@code JCacheCache} instance.
 	 * @param jcache backing JCache Cache instance
 	 */
 	public JCacheCache(Cache<Object, Object> jcache) {
@@ -50,7 +50,7 @@ public class JCacheCache extends AbstractValueAdaptingCache {
 	}
 
 	/**
-	 * Create an {@link org.springframework.cache.jcache.JCacheCache} instance.
+	 * Create a {@code JCacheCache} instance.
 	 * @param jcache backing JCache Cache instance
 	 * @param allowNullValues whether to accept and convert null values for this cache
 	 */
@@ -128,7 +128,7 @@ public class JCacheCache extends AbstractValueAdaptingCache {
 				}
 				catch (Exception ex) {
 					throw new EntryProcessorException("Value loader '" + valueLoader + "' failed " +
-							"to compute  value for key '" + entry.getKey() + "'", ex);
+							"to compute value for key '" + entry.getKey() + "'", ex);
 				}
 				entry.setValue(toStoreValue(value));
 				return value;

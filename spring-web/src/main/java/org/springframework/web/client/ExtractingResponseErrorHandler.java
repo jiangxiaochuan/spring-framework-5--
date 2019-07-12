@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -45,10 +45,10 @@ import org.springframework.util.CollectionUtils;
  * {@linkplain #setSeriesMapping(Map) series mapping}.
  *
  * <p>If there is no match, this error handler will default to the behavior of
- * {@link DefaultResponseErrorHandler}. Note that you can override this default behavior by
- * specifying a {@linkplain #setSeriesMapping(Map) series mapping} from
- * {@link HttpStatus.Series#CLIENT_ERROR} and/or {@link HttpStatus.Series#SERVER_ERROR} to
- * {@code null}.
+ * {@link DefaultResponseErrorHandler}. Note that you can override this default behavior
+ * by specifying a {@linkplain #setSeriesMapping(Map) series mapping} from
+ * {@code HttpStatus.Series#CLIENT_ERROR} and/or {@code HttpStatus.Series#SERVER_ERROR}
+ * to {@code null}.
  *
  * @author Simon Galperin
  * @author Arjen Poutsma
