@@ -1,5 +1,8 @@
 package com.sanjin.my.spring.study.classpathStudy;
 
+import com.sanjin.my.spring.study.common.service.HelloService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

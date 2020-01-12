@@ -431,7 +431,7 @@ public class BeanDefinitionParserDelegate {
 		}
 
 		if (containingBean == null) {
-			checkNameUniqueness(beanName, aliases, ele);
+			checkNameUniqueness(beanName, aliases, ele);//检验beanName与aliases的名字是否有重复
 		}
 
 		AbstractBeanDefinition beanDefinition = parseBeanDefinitionElement(ele, beanName, containingBean);
@@ -556,7 +556,7 @@ public class BeanDefinitionParserDelegate {
 	public AbstractBeanDefinition parseBeanDefinitionAttributes(Element ele, String beanName,
 			@Nullable BeanDefinition containingBean, AbstractBeanDefinition bd) {
 
-		if (ele.hasAttribute(SINGLETON_ATTRIBUTE)) {
+		if (ele.hasAttribute(SINGLETON_ATTRIBUTE)) {//singleton标签不在支持
 			error("Old 1.x 'singleton' attribute in use - upgrade to 'scope' declaration", ele);
 		}
 		else if (ele.hasAttribute(SCOPE_ATTRIBUTE)) {
@@ -1478,7 +1478,7 @@ public class BeanDefinitionParserDelegate {
 	}
 
 	public boolean isDefaultNamespace(Node node) {
-		return isDefaultNamespace(getNamespaceURI(node));
+		return isDefaultNamespace(getNamespaceURI(node));//getNamespaceURI(node)获取标签的命名空间
 	}
 
 	private boolean isCandidateElement(Node node) {

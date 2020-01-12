@@ -129,7 +129,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		BeanDefinitionParserDelegate parent = this.delegate;
 		this.delegate = createDelegate(getReaderContext(), root, parent);
 
-		if (this.delegate.isDefaultNamespace(root)) {
+		if (this.delegate.isDefaultNamespace(root)) {//root标签属于spring的xml命名空间(xmlns="http://www.springframework.org/schema/beans")
 			String profileSpec = root.getAttribute(PROFILE_ATTRIBUTE);
 			if (StringUtils.hasText(profileSpec)) {
 				String[] specifiedProfiles = StringUtils.tokenizeToStringArray(
@@ -144,9 +144,9 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		}
 
-		preProcessXml(root);
-		parseBeanDefinitions(root, this.delegate);
-		postProcessXml(root);
+		preProcessXml(root);//拓展方法，留给子类重写，用于解析自定义的xml标签
+		parseBeanDefinitions(root, this.delegate);//加载xml，先读取spring命令空间标签的BeanDefinition注册进BeanFactory，在处理自定义标签
+		postProcessXml(root);//
 
 		this.delegate = parent;
 	}
@@ -171,11 +171,11 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 				Node node = nl.item(i);
 				if (node instanceof Element) {
 					Element ele = (Element) node;
-					if (delegate.isDefaultNamespace(ele)) {
+					if (delegate.isDefaultNamespace(ele)) {//先解析spring命名空间的标签
 						parseDefaultElement(ele, delegate);
 					}
 					else {
-						delegate.parseCustomElement(ele);
+						delegate.parseCustomElement(ele);//处理自定义标签
 					}
 				}
 			}
