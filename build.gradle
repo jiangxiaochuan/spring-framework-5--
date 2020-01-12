@@ -69,7 +69,7 @@ configure(allprojects) { project ->
 
 	apply plugin: "propdeps"
 	apply plugin: "java"
-	apply plugin: "test-source-set-dependencies"
+	//apply plugin: "test-source-set-dependencies"
 	apply plugin: "io.spring.dependency-management"
 	apply from: "${gradleScriptDir}/ide.gradle"
 
