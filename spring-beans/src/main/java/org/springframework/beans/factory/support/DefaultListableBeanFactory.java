@@ -756,7 +756,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 					}
 				}
 				else {
-					getBean(beanName);
+					getBean(beanName);//实例化xml中定义的Bean
 				}
 			}
 		}

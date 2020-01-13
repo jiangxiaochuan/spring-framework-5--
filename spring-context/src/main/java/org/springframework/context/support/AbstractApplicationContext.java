@@ -522,32 +522,32 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();//读取xml标签，注册BeanDefinition进BeanFactory
 
 			// Prepare the bean factory for use in this context.
-			prepareBeanFactory(beanFactory);
+			prepareBeanFactory(beanFactory);//设置BeanFactory内部的系统环境Bean
 
 			try {
 				// Allows post-processing of the bean factory in context subclasses.
-				postProcessBeanFactory(beanFactory);
+				postProcessBeanFactory(beanFactory);//BeanFactory的postProcessBeanFactory，子类重写
 
 				// Invoke factory processors registered as beans in the context.
-				invokeBeanFactoryPostProcessors(beanFactory);
+				invokeBeanFactoryPostProcessors(beanFactory);//注册BeanFactoryPostProcessor
 
 				// Register bean processors that intercept bean creation.
-				registerBeanPostProcessors(beanFactory);
+				registerBeanPostProcessors(beanFactory);//注册BeanPostProcess
 
 				// Initialize message source for this context.
 				initMessageSource();
 
 				// Initialize event multicaster for this context.
-				initApplicationEventMulticaster();
+				initApplicationEventMulticaster();//初始化BeanFactory中的Multicaster(多播)
 
 				// Initialize other special beans in specific context subclasses.
-				onRefresh();
+				onRefresh();//refresh其他在子类中定义的context
 
 				// Check for listener beans and register them.
 				registerListeners();
 
 				// Instantiate all remaining (non-lazy-init) singletons.
-				finishBeanFactoryInitialization(beanFactory);
+				finishBeanFactoryInitialization(beanFactory);//实例化剩下的单利Bean
 
 				// Last step: publish corresponding event.
 				finishRefresh();
