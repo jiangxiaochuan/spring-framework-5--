@@ -234,7 +234,7 @@ final class PostProcessorRegistrationDelegate {
 		List<BeanPostProcessor> nonOrderedPostProcessors = new ArrayList<>();
 		for (String ppName : nonOrderedPostProcessorNames) {
 			BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
-			nonOrderedPostProcessors.add(pp);
+			nonOrderedPostProcessors.add(pp);//注册BeanPostProcess
 			if (pp instanceof MergedBeanDefinitionPostProcessor) {
 				internalPostProcessors.add(pp);
 			}
